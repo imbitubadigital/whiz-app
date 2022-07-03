@@ -1,0 +1,10 @@
+{
+  "expo": {
+    "name": "whizapp",
+    "slug": "whizapp",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
