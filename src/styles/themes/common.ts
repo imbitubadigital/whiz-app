@@ -10,6 +10,7 @@ export const Common: DefaultTheme = {
   font: {
     KumbhSans200ExtraLight: 'KumbhSans_200ExtraLight',
     KumbhSans400Regular: 'KumbhSans_400Regular',
+    KumbhSans700Bold: 'KumbhSans_700Bold',
   },
 
   size: {
@@ -33,10 +34,14 @@ export const Common: DefaultTheme = {
     gray200: '#C9BECD',
     gray300: '#AA9DAF',
     gray500: '#716875',
+    gray600: '#433c46',
     gray900: '#231E25',
+
+    purple500: '#9060b6',
 
     primary: '#33CD83',
     secondary: '#5C3A77',
     tertiary: '#6581CB',
+    danger: '#ff4a66',
   },
 };

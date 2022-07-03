@@ -5,6 +5,7 @@ import {
   useFonts,
   KumbhSans_200ExtraLight,
   KumbhSans_400Regular,
+  KumbhSans_700Bold,
 } from '@expo-google-fonts/kumbh-sans';
 
 import {NavigationContainer} from '@react-navigation/native';
@@ -16,6 +17,7 @@ export default function App() {
   const [fontsLoaded] = useFonts({
     KumbhSans_200ExtraLight,
     KumbhSans_400Regular,
+    KumbhSans_700Bold,
   });
 
   if (!fontsLoaded) {

@@ -6,6 +6,7 @@ declare module 'styled-components/native' {
     font: {
       KumbhSans200ExtraLight: string;
       KumbhSans400Regular: string;
+      KumbhSans700Bold: string;
     };
 
     size: {
@@ -29,11 +30,15 @@ declare module 'styled-components/native' {
       gray200: string;
       gray300: string;
       gray500: string;
+      gray600: string;
       gray900: string;
+
+      purple500: string;
 
       primary: string;
       secondary: string;
       tertiary: string;
+      danger: string;
     };
   }
 }
