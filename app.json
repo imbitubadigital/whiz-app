@@ -6,5 +6,8 @@
     "assetBundlePatterns": [
       "**/*"
     ]
-  }
+  },
+  "name": "whizapp",
+  "baseURL": "https://localhost",
+  "keyAsyncStorage": "@WHIZStorage"
 }
