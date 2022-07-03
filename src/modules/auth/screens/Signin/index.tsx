@@ -24,7 +24,7 @@ export function Signin() {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: {errors, isDirty, isValid},
   } = useForm<SignInProps>({
     mode: 'onChange',
     resolver: yupResolver(singInFormSchema),
@@ -80,6 +80,7 @@ export function Signin() {
               <Button
                 label="Log in"
                 onPress={handleSubmit(handleSignUpStepOne)}
+                disabled={!isDirty || !isValid}
               />
             </S.ContainerButton>
             <Separator height={18} />

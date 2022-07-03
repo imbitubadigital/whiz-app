@@ -34,7 +34,7 @@ export function SignupStepTwo() {
         <KeyboardAwareScrollView
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}>
-          {/* <Separator height={56} /> */}
+
           <S.Content>
             <Title>
               Which <Title type="highlight">house</Title> are{'\n'}

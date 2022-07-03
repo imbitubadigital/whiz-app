@@ -7,6 +7,7 @@ export const Container = styled(TouchableOpacity)`
   width: 190px;
   border-radius: 10px;
   background: ${props => props.theme.colors.purple500};
+  opacity: ${props => (props.disabled ? 0.4 : 1)};
 `;
 
 export const Label = styled.Text`
