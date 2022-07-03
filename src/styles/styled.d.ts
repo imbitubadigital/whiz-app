@@ -4,15 +4,8 @@ declare module 'styled-components/native' {
   export interface DefaultTheme {
     title: string;
     font: {
-      montserrat300Light: string;
-      montserrat400Regular: string;
-      montserrat500Medium: string;
-      montserrat600SemiBold: string;
-      montserrat700Bold: string;
-      montserrat900Black: string;
-      karla400Regular: string;
-      karla500Medium: string;
-      karla700Bold: string;
+      KumbhSans200ExtraLight: string;
+      KumbhSans400Regular: string;
     };
 
     size: {

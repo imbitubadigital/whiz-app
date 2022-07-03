@@ -8,15 +8,8 @@ export const Common: DefaultTheme = {
   title: 'dark',
 
   font: {
-    montserrat300Light: 'Montserrat_300Light',
-    montserrat400Regular: 'Montserrat_400Regular',
-    montserrat500Medium: 'Montserrat_500Medium',
-    montserrat600SemiBold: 'Montserrat_600SemiBold',
-    montserrat700Bold: 'Montserrat_700Bold',
-    montserrat900Black: 'Montserrat_900Black',
-    karla400Regular: 'Karla_400Regular',
-    karla500Medium: 'Karla_500Medium',
-    karla700Bold: 'Karla_700Bold',
+    KumbhSans200ExtraLight: 'KumbhSans_200ExtraLight',
+    KumbhSans400Regular: 'KumbhSans_400Regular',
   },
 
   size: {
