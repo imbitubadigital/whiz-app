@@ -7,4 +7,6 @@ export interface Props {
 }
 export interface ItemProps {
   item: Props;
+
+  highlight?: boolean;
 }

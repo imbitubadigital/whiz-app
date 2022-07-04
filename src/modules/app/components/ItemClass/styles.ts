@@ -24,8 +24,12 @@ export const LabelLeft = styled.Text`
 `;
 export const Right = styled.View``;
 
-export const LabelRight = styled.Text`
-  color: ${props => props.theme.colors.gray300};
+interface HighlightProps {
+  highlight: boolean;
+}
+export const LabelRight = styled.Text<HighlightProps>`
+  color: ${props =>
+    props.highlight ? props.theme.colors.primary : props.theme.colors.gray300};
   font-family: ${props => props.theme.font.KumbhSans400Regular};
   font-size: ${props => props.theme.size.rf14}px;
 `;

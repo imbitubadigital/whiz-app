@@ -3,9 +3,7 @@ import {ItemProps} from './interfaces';
 
 import * as S from './styles';
 
-//import {} from './interfaces';
-
-export function ItemClass({item}: ItemProps) {
+export function ItemClass({item, highlight = false}: ItemProps) {
   const {icon: Icon, labelLeft, labelRight} = item;
   return (
     <S.Container>
@@ -14,7 +12,7 @@ export function ItemClass({item}: ItemProps) {
         <S.LabelLeft>{labelLeft}</S.LabelLeft>
       </S.Left>
       <S.Right>
-        <S.LabelRight>{labelRight}</S.LabelRight>
+        <S.LabelRight highlight={highlight}>{labelRight}</S.LabelRight>
       </S.Right>
     </S.Container>
   );
