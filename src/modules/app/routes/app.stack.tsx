@@ -2,9 +2,8 @@ import {createStackNavigator} from '@react-navigation/stack';
 import React, {useContext} from 'react';
 import {StatusBar} from 'react-native';
 import {ThemeContext} from 'styled-components';
-//import {BottomTabs} from '../bottomTabs/bottomTabs.routes';
 
-import {Home} from '../screens/Home';
+import {BottomTabs} from './app.bottom.tabs';
 
 const AppStack = createStackNavigator();
 
@@ -25,8 +24,7 @@ const HomeDrawer: React.FC = () => {
           },
           headerShown: false,
         }}>
-        {/* <AppStack.Screen name="homeInitial" component={BottomTabs} /> */}
-        <AppStack.Screen name="Home" component={Home} />
+        <AppStack.Screen name="BottomTabs" component={BottomTabs} />
       </AppStack.Navigator>
     </>
   );

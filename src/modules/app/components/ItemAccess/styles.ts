@@ -6,7 +6,7 @@ export const Container = styled(TouchableOpacity)`
   background: ${props => props.theme.colors.gray600};
   height: 126px;
   width: 126px;
-  margin: 18px;
+  margin: 12px;
   justify-content: center;
   align-items: center;
 `;
