@@ -2,8 +2,9 @@ import React from 'react';
 
 import {createStackNavigator} from '@react-navigation/stack';
 
-//import AuthStack from '@modules/auth/routes';
+import AuthStack from '@modules/auth/routes';
 import TourStack from '@modules/tour/routes';
+import {AppDrawer} from '@src/modules/app/routes/app.drawer';
 
 const AppStack = createStackNavigator();
 
@@ -23,8 +24,9 @@ const AppRoutes = () => {
       screenOptions={{
         headerShown: false,
       }}>
-      <AppStack.Screen name="TourStack" component={TourStack} />
-      {/* <AppStack.Screen name="AuthRoutes" component={AuthStack} /> */}
+      <AppStack.Screen name="AppDrawer" component={AppDrawer} />
+      {/* <AppStack.Screen name="TourStack" component={TourStack} />
+       <AppStack.Screen name="AuthRoutes" component={AuthStack} />  */}
     </AppStack.Navigator>
   );
 };
