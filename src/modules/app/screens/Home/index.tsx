@@ -11,6 +11,7 @@ import {Separator} from '@src/components/Separator';
 import {Points} from '../../components/Points';
 import {NextClasses} from '../../components/NextClasses';
 import {Link} from '@src/components/Link';
+import {QuickAccess} from '../../components/QuickAcess';
 
 export function Home() {
   const navigation = useNavigation();
@@ -31,7 +32,8 @@ export function Home() {
           <Separator height={56} />
           <NextClasses />
           <Link label="See all" align="right" />
-          <Separator height={46} />
+          <Separator height={36} />
+          <QuickAccess />
         </S.Scroll>
       </S.Content>
     </S.Container>
