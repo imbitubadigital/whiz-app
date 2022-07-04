@@ -18,7 +18,6 @@ const screenWidth = Dimensions.get('window').width;
 export function Introduction() {
   const scrollRef = useRef<ScrollView | any>(null);
   const [position, setPosition] = useState(0);
-  const [numberStep, setNumberStep] = useState(1);
 
   const handlePosition = useCallback(
     (e: NativeSyntheticEvent<NativeScrollEvent>) => {
@@ -26,11 +25,10 @@ export function Introduction() {
         e.nativeEvent.contentOffset.x / screenWidth,
       );
       setPosition(currentPosition);
-      setNumberStep(currentPosition + 1);
     },
     [],
   );
-  console.log({position, numberStep});
+
   return (
     <>
       <AndroidBackHandler onBackPress={() => true} />

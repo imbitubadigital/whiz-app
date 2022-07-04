@@ -8,9 +8,13 @@ const CardItem = ({item}: PropsTour) => {
   const {label, icon: Icon} = item;
   const handleTitle = useMemo(() => {
     const labelSplit = label.split(' ');
-    const formatted = labelSplit.map((i: string) => {
+    const formatted = labelSplit.map((i: string, index) => {
       if (i === 'Whiz') {
-        return <S.Title highlight>{`${i} `} </S.Title>;
+        return (
+          <S.Title key={String(index)} highlight>
+            {`${i} `}{' '}
+          </S.Title>
+        );
       }
       return `${i} `;
     });
