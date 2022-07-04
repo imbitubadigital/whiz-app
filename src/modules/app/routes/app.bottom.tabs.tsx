@@ -1,7 +1,6 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {Home} from '../screens/Home';
-import {useTheme} from 'styled-components';
 import {Classes} from '../screens/Classes';
 import {Glossary} from '../screens/Glossary';
 import {HomeWork} from '../screens/HomeWork';
@@ -11,7 +10,6 @@ import {TabBottomMenu} from '../components/TabBottomMenu';
 const Tab = createBottomTabNavigator();
 
 function BottomTabs() {
-  const {colors} = useTheme();
   return (
     <Tab.Navigator
       screenOptions={{

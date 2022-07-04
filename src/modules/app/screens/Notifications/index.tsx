@@ -7,6 +7,11 @@ import {ButtonIcon} from '@src/components/ButtonIcon';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {Header} from '@src/components/Header';
 import {Avatar} from '@src/components/Avatar';
+import {TitlePage} from '@src/components/TitlePage';
+import {FlatList} from 'react-native';
+import {NotificationItem} from './NotificationItem';
+import {notificationData} from './data';
+import {Separator} from '@src/components/Separator';
 
 export function Notifications() {
   const navigation = useNavigation();
@@ -22,12 +27,18 @@ export function Notifications() {
         componentRight={() => <Avatar />}
       />
       <S.Content>
-        <S.Scroll>
-          <S.Txt>Notifications</S.Txt>
-          <S.Txt>Notifications</S.Txt>
-          <S.Txt>Notifications</S.Txt>
-          <S.Txt>Notifications</S.Txt>
-        </S.Scroll>
+        <TitlePage>Notifications</TitlePage>
+
+        <Separator height={30} />
+
+        <FlatList
+          showsHorizontalScrollIndicator={false}
+          contentContainerStyle={{padding: 5}}
+          data={notificationData}
+          renderItem={({item}) => <NotificationItem item={item} />}
+          keyExtractor={item => String(item.id)}
+          ItemSeparatorComponent={() => <S.SeparatorList />}
+        />
       </S.Content>
     </S.Container>
   );

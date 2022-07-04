@@ -7,6 +7,8 @@ import {ButtonIcon} from '@src/components/ButtonIcon';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {Header} from '@src/components/Header';
 import {Avatar} from '@src/components/Avatar';
+import {TitlePage} from '@src/components/TitlePage';
+import {Separator} from '@src/components/Separator';
 
 export function HomeWork() {
   const navigation = useNavigation();
@@ -23,10 +25,9 @@ export function HomeWork() {
       />
       <S.Content>
         <S.Scroll>
-          <S.Txt>HomeWork</S.Txt>
-          <S.Txt>HomeWork</S.Txt>
-          <S.Txt>HomeWork</S.Txt>
-          <S.Txt>HomeWork</S.Txt>
+          <TitlePage>Homework and Tests</TitlePage>
+
+          <Separator height={30} />
         </S.Scroll>
       </S.Content>
     </S.Container>

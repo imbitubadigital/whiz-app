@@ -16,7 +16,7 @@ export const Content = styled.View`
   padding: ${wp('5.5%')}px;
 `;
 
-export const Txt = styled.Text`
+export const SeparatorList = styled.View`
   color: red;
-  font-size: 20px;
+  height: 14px;
 `;
