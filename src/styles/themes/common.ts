@@ -37,6 +37,8 @@ export const Common: DefaultTheme = {
     gray600: '#433c46',
     gray900: '#231E25',
 
+    brown400: '#A15E5E',
+
     purple500: '#9060b6',
 
     primary: '#33CD83',

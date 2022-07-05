@@ -15,3 +15,7 @@ export const SeparatorList = styled.View`
   color: red;
   height: 14px;
 `;
+export const SeparatorListTest = styled.View`
+  color: red;
+  height: 6px;
+`;

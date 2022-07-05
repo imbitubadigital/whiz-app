@@ -26,7 +26,7 @@ const DrawerMenu: React.FC<DrawerContentComponentProps> = props => {
         </S.Header>
         <S.Content>
           <S.Item
-            onPress={() => navigation.navigate('home')}
+            onPress={() => navigation.navigate('Profile')}
             activeOpacity={0.7}
             active={true}>
             <UserIcon />

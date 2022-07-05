@@ -33,6 +33,7 @@ declare module 'styled-components/native' {
       gray600: string;
       gray900: string;
 
+      brown400: string;
       purple500: string;
 
       primary: string;

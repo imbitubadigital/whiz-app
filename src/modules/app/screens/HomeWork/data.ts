@@ -1,5 +1,4 @@
 import Herbolody from '@assets/herbolody.svg';
-
 import Magic from '@assets/magic.svg';
 import TestTube from '@assets/tube.svg';
 import Star from '@assets/star.svg';
