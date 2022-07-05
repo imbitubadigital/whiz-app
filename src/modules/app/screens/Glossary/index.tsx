@@ -7,6 +7,7 @@ import {ButtonIcon} from '@src/components/ButtonIcon';
 import {DrawerActions, useNavigation} from '@react-navigation/native';
 import {Header} from '@src/components/Header';
 import {Avatar} from '@src/components/Avatar';
+import {TitlePage} from '@src/components/TitlePage';
 
 export function Glossary() {
   const navigation = useNavigation();
@@ -23,10 +24,7 @@ export function Glossary() {
       />
       <S.Content>
         <S.Scroll>
-          <S.Txt>Glossary</S.Txt>
-          <S.Txt>Glossary</S.Txt>
-          <S.Txt>Glossary</S.Txt>
-          <S.Txt>Glossary</S.Txt>
+          <TitlePage>Glossary</TitlePage>
         </S.Scroll>
       </S.Content>
     </S.Container>

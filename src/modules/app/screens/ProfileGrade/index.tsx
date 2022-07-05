@@ -1,29 +1,24 @@
 import React from 'react';
 
 import * as S from './styles';
-import MobileMenu from '@assets/menu-mobile.svg';
 
 import {ButtonIcon} from '@src/components/ButtonIcon';
-import {DrawerActions, useNavigation} from '@react-navigation/native';
+import {useNavigation} from '@react-navigation/native';
 import {Header} from '@src/components/Header';
-import {Avatar} from '@src/components/Avatar';
+
 import {Separator} from '@src/components/Separator';
 
 import {Grades} from './Grades';
 import {TitlePage} from '@src/components/TitlePage';
-
+import ArrowLeft from '@assets/arrow-left.svg';
 export function ProfileGrade() {
   const navigation = useNavigation();
   return (
     <S.Container>
       <Header
         componentLeft={() => (
-          <ButtonIcon
-            icon={MobileMenu}
-            onPress={() => navigation.dispatch(DrawerActions.toggleDrawer())}
-          />
+          <ButtonIcon icon={ArrowLeft} onPress={() => navigation.goBack()} />
         )}
-        componentRight={() => <Avatar />}
       />
       <S.Content>
         <TitlePage>My Grades</TitlePage>
