@@ -8,11 +8,12 @@ import React from 'react';
 
 import * as S from './styles';
 
-import {DrawerActions} from '@react-navigation/native';
+import {DrawerActions, useLinkTo} from '@react-navigation/native';
 import {ButtonIcon} from '@src/components/ButtonIcon';
 
 const DrawerMenu: React.FC<DrawerContentComponentProps> = props => {
   const {navigation} = props;
+  const linkTo = useLinkTo();
 
   return (
     <>
@@ -26,7 +27,7 @@ const DrawerMenu: React.FC<DrawerContentComponentProps> = props => {
         </S.Header>
         <S.Content>
           <S.Item
-            onPress={() => navigation.navigate('Profile')}
+            onPress={() => linkTo('/ProfileStack')}
             activeOpacity={0.7}
             active={true}>
             <UserIcon />

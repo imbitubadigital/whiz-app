@@ -40,6 +40,7 @@ declare module 'styled-components/native' {
       secondary: string;
       tertiary: string;
       danger: string;
+      success: string;
     };
   }
 }

@@ -7,12 +7,12 @@ export const dataProfile = [
     id: '1',
     label: 'My grades',
     icon: SmallAMoreIcon,
-    link: 'ProfileGrade',
+    link: '/ProfileGrade',
   },
   {
     id: '2',
     label: 'My classes',
     icon: Herbolody,
-    link: 'ProfileClass',
+    link: '/ProfileClass',
   },
 ];

@@ -45,5 +45,6 @@ export const Common: DefaultTheme = {
     secondary: '#5C3A77',
     tertiary: '#6581CB',
     danger: '#ff4a66',
+    success: '#97C65B',
   },
 };
