@@ -71,7 +71,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
       if (type === 'concluded') {
         await settingStorage(updateUser);
       }
-
+      setTemporaryUser(updateUser);
       setUser(updateUser);
       setLoading(false);
     },
@@ -108,7 +108,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
         isLogged: true,
       };
 
-      setTemporaryUser({...initialUser, tour: false});
+      setTemporaryUser({...initialUser, tour: true});
 
       await settingData(updateUser);
       setLoading(false);

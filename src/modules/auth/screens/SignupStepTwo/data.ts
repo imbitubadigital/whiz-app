@@ -6,17 +6,21 @@ export const ItemsHouse = [
   {
     id: '1',
     icon: Snake,
+    name: 'Slytherin',
   },
   {
     id: '2',
     icon: Dog,
+    name: 'Hufflepuff',
   },
   {
     id: '3',
     icon: Lion,
+    name: 'Gryffindor',
   },
   {
     id: '4',
     icon: Bird,
+    name: 'Ravenclaw',
   },
 ];

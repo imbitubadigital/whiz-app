@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <resources>
   <color name="splashscreen_background">#231E25</color>
+  <color name="app_bg">#231E25</color>
+  <color name="primary">#231E25</color>
 </resources>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import BirdIcon from '@assets/bird.svg';
 import ArrowLeft from '@assets/arrow-left.svg';
 import Avatar from '@assets/avatar.png';
@@ -10,11 +10,18 @@ import {useLinkTo, useNavigation} from '@react-navigation/native';
 import {dataProfile} from './data';
 import {ItemProfile} from './ItemProfile';
 import {useAuth} from '@src/contexts/auth';
+import {ItemsHouse} from '@src/modules/auth/screens/SignupStepTwo/data';
 
 export function Profile() {
   const navigation = useNavigation();
   const {user} = useAuth();
   const linkTo = useLinkTo();
+  const house = useMemo(() => {
+    return ItemsHouse.find(h => h.id === user?.house)?.name || '';
+  }, [user.house]);
+  const Icon = useMemo(() => {
+    return ItemsHouse.find(h => h.id === user?.house)?.icon || BirdIcon;
+  }, [user.house]);
   return (
     <S.Container>
       <S.Header>
@@ -29,8 +36,8 @@ export function Profile() {
 
       <S.Score>
         <S.ScoreLeft>
-          <BirdIcon width={40} />
-          <S.ScoreLabel>Ravenclaw</S.ScoreLabel>
+          <Icon width={40} />
+          <S.ScoreLabel>{house}</S.ScoreLabel>
         </S.ScoreLeft>
         <S.ScoreRight>
           <S.Points>120</S.Points>

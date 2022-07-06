@@ -19,6 +19,7 @@ const screenWidth = Dimensions.get('window').width;
 
 export function Introduction() {
   const scrollRef = useRef<ScrollView | any>(null);
+
   const {settingTour, loading} = useAuth();
   const [position, setPosition] = useState(0);
 
@@ -31,6 +32,11 @@ export function Introduction() {
     },
     [],
   );
+
+  const handleSkip = useCallback(() => {
+    setPosition(0);
+    settingTour('skip');
+  }, [settingTour]);
 
   return (
     <BackgroundGradient>
@@ -65,11 +71,7 @@ export function Introduction() {
                     );
                   })}
                 </S.ContainerBullet>
-                <Link
-                  label="Skip"
-                  align="center"
-                  onPress={() => settingTour('skip')}
-                />
+                <Link label="Skip" align="center" onPress={handleSkip} />
               </>
             )}
           </S.ContentFooter>

@@ -30,8 +30,8 @@ export const Item = styled.TouchableOpacity<PropsItem>`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: ${wp('5%')}px 0;
-  height: 20px;
+  margin: ${wp('4%')}px 0;
+  height: 30px;
 `;
 
 export const TxtItem = styled.Text`
