@@ -8,7 +8,7 @@ import {Title} from '@src/components/Title';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {Separator} from '@src/components/Separator';
 import {Input} from '@src/components/Form/Input';
-import {TextInput} from 'react-native';
+import {TextInput, Keyboard} from 'react-native';
 import UserIcon from '@assets/user.svg';
 import SchoolIcon from '@assets/school.svg';
 import {SignUpStepOneProps} from './interfaces';
@@ -28,7 +28,7 @@ export function SignupStepOne() {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: {errors, isDirty, isValid},
   } = useForm<SignUpStepOneProps>({
     mode: 'onChange',
     resolver: yupResolver(singUpFormStepOneSchema),
@@ -36,6 +36,7 @@ export function SignupStepOne() {
 
   const handleSignUpStepOne = useCallback(
     (data: SignUpStepOneProps) => {
+      Keyboard.dismiss();
       if (createUserStepOne(data)) {
         linkTo('/SignupStepTwo');
       }
@@ -82,7 +83,8 @@ export function SignupStepOne() {
               ref={schoolIdRef}
               placeholder="Enter your school id"
               autoCapitalize="none"
-              returnKeyType="next"
+              returnKeyType="send"
+              onSubmitEditing={handleSubmit(handleSignUpStepOne)}
             />
 
             <Link label="forgot your ID?" align="right" />
@@ -92,6 +94,7 @@ export function SignupStepOne() {
               <Button
                 label="Next"
                 onPress={handleSubmit(handleSignUpStepOne)}
+                disabled={!isDirty || !isValid}
               />
             </S.ContainerButton>
             <Separator height={18} />

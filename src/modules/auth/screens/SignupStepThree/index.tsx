@@ -8,7 +8,7 @@ import {Title} from '@src/components/Title';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {Separator} from '@src/components/Separator';
 import {Input} from '@src/components/Form/Input';
-import {TextInput} from 'react-native';
+import {Keyboard, TextInput} from 'react-native';
 import emailIcon from '@assets/email.svg';
 import passIcon from '@assets/pass.svg';
 import {SignUpStepThreeProps} from './interfaces';
@@ -31,7 +31,7 @@ export function SignupStepThree() {
   const {
     control,
     handleSubmit,
-    formState: {errors},
+    formState: {errors, isDirty, isValid},
   } = useForm<SignUpStepThreeProps>({
     mode: 'onChange',
     resolver: yupResolver(singUpFormStepThreeSchema),
@@ -39,6 +39,7 @@ export function SignupStepThree() {
 
   const handleSignUpStepThree = useCallback(
     (data: SignUpStepThreeProps) => {
+      Keyboard.dismiss();
       if (createUserStepThree(data)) {
         linkTo('/Subjects');
       }
@@ -105,7 +106,8 @@ export function SignupStepThree() {
               ref={passwordConfirmRef}
               placeholder="Confirm password"
               autoCapitalize="none"
-              returnKeyType="next"
+              returnKeyType="send"
+              onSubmitEditing={handleSubmit(handleSignUpStepThree)}
             />
 
             <Separator height={80} />
@@ -114,6 +116,7 @@ export function SignupStepThree() {
               <Button
                 label="Create account"
                 onPress={handleSubmit(handleSignUpStepThree)}
+                disabled={!isDirty || !isValid}
               />
             </S.ContainerButton>
             <Separator height={18} />

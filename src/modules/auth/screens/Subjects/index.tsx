@@ -14,11 +14,10 @@ import {FlatList} from 'react-native';
 import {SubjectItem} from './SubjectItem';
 import {ItemsSubject} from './data';
 import {Header} from '@src/components/Header';
-import {useLinkTo} from '@react-navigation/native';
+
 import {useAuth} from '@src/contexts/auth';
 
 export function Subjects() {
-  const linkTo = useLinkTo();
   const {createUserFinish} = useAuth();
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const handleSelect = useCallback((id: string) => {

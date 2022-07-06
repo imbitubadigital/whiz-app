@@ -9,9 +9,11 @@ import {ButtonIcon} from '@src/components/ButtonIcon';
 import {useLinkTo, useNavigation} from '@react-navigation/native';
 import {dataProfile} from './data';
 import {ItemProfile} from './ItemProfile';
+import {useAuth} from '@src/contexts/auth';
 
 export function Profile() {
   const navigation = useNavigation();
+  const {user} = useAuth();
   const linkTo = useLinkTo();
   return (
     <S.Container>
@@ -23,7 +25,7 @@ export function Profile() {
       </S.Header>
       <Separator height={68} />
 
-      <S.Title>Luna Lovegood</S.Title>
+      <S.Title>{user.name}</S.Title>
 
       <S.Score>
         <S.ScoreLeft>

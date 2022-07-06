@@ -1,4 +1,4 @@
-import { BackgroundGradient } from '@src/components/BackgroundGradient';
+import {BackgroundGradient} from '@src/components/BackgroundGradient';
 import {Button} from '@src/components/Button';
 import {Link} from '@src/components/Link';
 import {useAuth} from '@src/contexts/auth';
@@ -8,8 +8,8 @@ import {
   NativeScrollEvent,
   NativeSyntheticEvent,
   ScrollView,
-  StatusBar,
 } from 'react-native';
+
 import {AndroidBackHandler} from 'react-navigation-backhandler';
 import {dataTour} from '../../data';
 import Card from './Card';
@@ -36,7 +36,6 @@ export function Introduction() {
     <BackgroundGradient>
       <AndroidBackHandler onBackPress={() => true} />
       <S.Container>
-        <StatusBar hidden={true} />
         <S.Content>
           <S.ScrollTour
             pagingEnabled

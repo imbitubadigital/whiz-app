@@ -63,6 +63,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
 
   const settingTour = useCallback(
     async (type: TourType) => {
+      setLoading(true);
       const updateUser = {
         ...user,
         tour: true,
@@ -72,6 +73,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
       }
 
       setUser(updateUser);
+      setLoading(false);
     },
     [user],
   );
@@ -99,6 +101,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
 
   const createUserFinish = useCallback(
     async (subjects: string[]) => {
+      setLoading(true);
       const updateUser = {
         ...temporaryUser,
         subjects,
@@ -108,7 +111,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
       setTemporaryUser({...initialUser, tour: false});
 
       await settingData(updateUser);
-
+      setLoading(false);
       return true;
     },
     [settingData, temporaryUser],
@@ -148,8 +151,10 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
         ) {
           setError('Invalid credentials');
         } else {
+          setError('');
           await settingData({...dataParse, isLogged: true});
         }
+
         setLoading(false);
       }
     },
