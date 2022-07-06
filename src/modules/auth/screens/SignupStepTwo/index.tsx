@@ -15,14 +15,24 @@ import {Header} from '@src/components/Header';
 import {ButtonIcon} from '@src/components/ButtonIcon';
 import ArrowLeft from '@assets/arrow-left.svg';
 import {useLinkTo, useNavigation} from '@react-navigation/native';
+import {useAuth} from '@src/contexts/auth';
 
 export function SignupStepTwo() {
   const linkTo = useLinkTo();
   const navigation = useNavigation();
+  const {createUserStepTwo} = useAuth();
   const [selected, setSelected] = useState('');
+
   const handleSelect = useCallback((id: string) => {
     setSelected(id);
   }, []);
+  const handleSubmit = useCallback(() => {
+    if (selected) {
+      if (createUserStepTwo(selected)) {
+        linkTo('/SignupStepThree');
+      }
+    }
+  }, [createUserStepTwo, linkTo, selected]);
   return (
     <BackgroundGradient>
       <S.Container>
@@ -34,7 +44,6 @@ export function SignupStepTwo() {
         <KeyboardAwareScrollView
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}>
-
           <S.Content>
             <Title>
               Which <Title type="highlight">house</Title> are{'\n'}
@@ -52,7 +61,11 @@ export function SignupStepTwo() {
             <Separator height={60} />
 
             <S.ContainerButton>
-              <Button label="Next" onPress={() => linkTo('/SignupStepThree')} />
+              <Button
+                label="Next"
+                onPress={handleSubmit}
+                disabled={!selected}
+              />
             </S.ContainerButton>
             <Separator height={18} />
             <Link

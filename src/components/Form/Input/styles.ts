@@ -13,7 +13,7 @@ export const ContainerInput = styled.View<ContainerInputProps>`
   justify-content: flex-start;
   border-width: 1px;
   border-color: ${props =>
-    props.isError ? props.theme.colors.purple500 : props.theme.colors.gray600};
+    props.isError ? props.theme.colors.brown400 : props.theme.colors.gray600};
   background: ${props => props.theme.colors.gray600};
   height: 56px;
   border-radius: 10px;

@@ -9,6 +9,6 @@ export const Container = styled.View`
 
 export const TextError = styled.Text`
   font-family: ${props => props.theme.font.KumbhSans200ExtraLight};
-  color: ${props => props.theme.colors.purple500};
-  font-size: ${props => props.theme.size.rf12}px;
+  color: ${props => props.theme.colors.brown400};
+  font-size: ${props => props.theme.size.rf14}px;
 `;

@@ -12,6 +12,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {SwitchThemeProvider} from '@contexts/switch-theme';
 
 import AppRoutes from '@routes';
+import {AppProvider} from './contexts';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -32,7 +33,9 @@ export default function App() {
       />
 
       <SwitchThemeProvider>
-        <AppRoutes />
+        <AppProvider>
+          <AppRoutes />
+        </AppProvider>
       </SwitchThemeProvider>
     </NavigationContainer>
   );

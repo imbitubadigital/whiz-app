@@ -2,12 +2,15 @@ import styled from 'styled-components/native';
 
 import {StyleSheet, TouchableOpacity} from 'react-native';
 
-export const Container = styled(TouchableOpacity)`
+interface BtnProps {
+  isLoading: boolean;
+}
+export const Container = styled(TouchableOpacity)<BtnProps>`
   height: 42px;
   width: 190px;
   border-radius: 10px;
   background: ${props => props.theme.colors.purple500};
-  opacity: ${props => (props.disabled ? 0.4 : 1)};
+  opacity: ${props => (props.disabled && !props.isLoading ? 0.4 : 1)};
 `;
 
 export const Label = styled.Text`

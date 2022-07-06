@@ -2,6 +2,7 @@ import {DrawerContentComponentProps} from '@react-navigation/drawer';
 import ArrowLeft from '@assets/arrow-left.svg';
 import UserIcon from '@assets/user-menu.svg';
 import HelpIcon from '@assets/help.svg';
+import TourIcon from '@assets/tour.svg';
 import LogoutIcon from '@assets/logout.svg';
 import SettingIcon from '@assets/setting.svg';
 import React from 'react';
@@ -10,10 +11,12 @@ import * as S from './styles';
 
 import {DrawerActions, useLinkTo} from '@react-navigation/native';
 import {ButtonIcon} from '@src/components/ButtonIcon';
+import {useAuth} from '@src/contexts/auth';
 
 const DrawerMenu: React.FC<DrawerContentComponentProps> = props => {
   const {navigation} = props;
   const linkTo = useLinkTo();
+  const {signOut, reviewTour} = useAuth();
 
   return (
     <>
@@ -42,7 +45,11 @@ const DrawerMenu: React.FC<DrawerContentComponentProps> = props => {
             <HelpIcon />
             <S.TxtItem>Help</S.TxtItem>
           </S.Item>
-          <S.Item activeOpacity={0.7} active={true}>
+          <S.Item activeOpacity={0.7} active={true} onPress={reviewTour}>
+            <TourIcon />
+            <S.TxtItem>Review tour</S.TxtItem>
+          </S.Item>
+          <S.Item activeOpacity={0.7} active={true} onPress={signOut}>
             <LogoutIcon />
             <S.TxtItem>Log out</S.TxtItem>
           </S.Item>

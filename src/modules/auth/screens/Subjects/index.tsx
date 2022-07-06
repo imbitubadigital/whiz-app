@@ -15,9 +15,11 @@ import {SubjectItem} from './SubjectItem';
 import {ItemsSubject} from './data';
 import {Header} from '@src/components/Header';
 import {useLinkTo} from '@react-navigation/native';
+import {useAuth} from '@src/contexts/auth';
 
 export function Subjects() {
   const linkTo = useLinkTo();
+  const {createUserFinish} = useAuth();
   const [selectedItems, setSelectedItems] = useState<string[]>([]);
   const handleSelect = useCallback((id: string) => {
     setSelectedItems(prevState => {
@@ -28,6 +30,10 @@ export function Subjects() {
       return [...prevState, id];
     });
   }, []);
+
+  const handleSubmit = useCallback(async () => {
+    await createUserFinish(selectedItems);
+  }, [createUserFinish, selectedItems]);
 
   return (
     <BackgroundGradient>
@@ -59,10 +65,10 @@ export function Subjects() {
           </S.ContainerList>
           <Separator height={22} />
           <S.ContainerButton>
-            <Button label="Confirm" />
+            <Button label="Confirm" onPress={handleSubmit} />
           </S.ContainerButton>
           <Separator height={18} />
-          <Link label="Skip for now" onPress={() => linkTo('/Signin')} />
+          <Link label="Skip for now" onPress={handleSubmit} />
           <Separator height={40} />
         </S.Content>
       </S.Container>

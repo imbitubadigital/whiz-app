@@ -19,10 +19,12 @@ import {Header} from '@src/components/Header';
 import {ButtonIcon} from '@src/components/ButtonIcon';
 import ArrowLeft from '@assets/arrow-left.svg';
 import {useLinkTo, useNavigation} from '@react-navigation/native';
+import {useAuth} from '@src/contexts/auth';
 export function SignupStepOne() {
   const schoolIdRef = useRef<TextInput>(null);
   const linkTo = useLinkTo();
   const navigation = useNavigation();
+  const {createUserStepOne} = useAuth();
   const {
     control,
     handleSubmit,
@@ -32,9 +34,14 @@ export function SignupStepOne() {
     resolver: yupResolver(singUpFormStepOneSchema),
   });
 
-  const handleSignUpStepOne = useCallback(async (data: SignUpStepOneProps) => {
-    console.log('data', data);
-  }, []);
+  const handleSignUpStepOne = useCallback(
+    (data: SignUpStepOneProps) => {
+      if (createUserStepOne(data)) {
+        linkTo('/SignupStepTwo');
+      }
+    },
+    [createUserStepOne, linkTo],
+  );
 
   return (
     <BackgroundGradient>
@@ -84,8 +91,7 @@ export function SignupStepOne() {
             <S.ContainerButton>
               <Button
                 label="Next"
-                // onPress={handleSubmit(handleSignUpStepOne)}
-                onPress={() => linkTo('/SignupStepTwo')}
+                onPress={handleSubmit(handleSignUpStepOne)}
               />
             </S.ContainerButton>
             <Separator height={18} />

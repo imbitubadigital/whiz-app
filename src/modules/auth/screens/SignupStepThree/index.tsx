@@ -19,10 +19,12 @@ import {useLinkTo, useNavigation} from '@react-navigation/native';
 import {Link} from '@src/components/Link';
 import {Button} from '@src/components/Button';
 import {Header} from '@src/components/Header';
+import {useAuth} from '@src/contexts/auth';
 
 export function SignupStepThree() {
   const passwordRef = useRef<TextInput>(null);
   const passwordConfirmRef = useRef<TextInput>(null);
+  const {createUserStepThree} = useAuth();
 
   const linkTo = useLinkTo();
   const navigation = useNavigation();
@@ -36,10 +38,12 @@ export function SignupStepThree() {
   });
 
   const handleSignUpStepThree = useCallback(
-    async (data: SignUpStepThreeProps) => {
-      console.log('data', data);
+    (data: SignUpStepThreeProps) => {
+      if (createUserStepThree(data)) {
+        linkTo('/Subjects');
+      }
     },
-    [],
+    [createUserStepThree, linkTo],
   );
 
   return (
@@ -68,6 +72,7 @@ export function SignupStepThree() {
               icon={emailIcon}
               name="email"
               keyboardType="email-address"
+              autoCapitalize="none"
               placeholder="Enter your email"
               returnKeyType="next"
               onSubmitEditing={() => passwordRef.current?.focus()}
@@ -81,9 +86,9 @@ export function SignupStepThree() {
               icon={passIcon}
               name="password"
               secureTextEntry
+              autoCapitalize="none"
               ref={passwordRef}
               placeholder="Enter your password"
-              autoCapitalize="none"
               returnKeyType="next"
               onSubmitEditing={() => passwordConfirmRef.current?.focus()}
             />
@@ -108,8 +113,7 @@ export function SignupStepThree() {
             <S.ContainerButton>
               <Button
                 label="Create account"
-                // onPress={handleSubmit(handleSignUpStepThree)}
-                onPress={() => linkTo('/Subjects')}
+                onPress={handleSubmit(handleSignUpStepThree)}
               />
             </S.ContainerButton>
             <Separator height={18} />

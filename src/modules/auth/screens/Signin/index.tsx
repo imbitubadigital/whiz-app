@@ -17,12 +17,15 @@ import {Link} from '@src/components/Link';
 import {Button} from '@src/components/Button';
 import {Header} from '@src/components/Header';
 import {useLinkTo} from '@react-navigation/native';
-
+import {useAuth} from '@src/contexts/auth';
+import {Error} from '@components/Error';
 export function Signin() {
   const passwordRef = useRef<TextInput>(null);
   const linkTo = useLinkTo();
+  const {signIn, loading, error, user, resetError} = useAuth();
   const {
     control,
+
     handleSubmit,
     formState: {errors, isDirty, isValid},
   } = useForm<SignInProps>({
@@ -30,10 +33,13 @@ export function Signin() {
     resolver: yupResolver(singInFormSchema),
   });
 
-  const handleSignUpStepOne = useCallback(async (data: SignInProps) => {
-    console.log('data', data);
-  }, []);
-
+  const handleSignUpStepOne = useCallback(
+    async (data: SignInProps) => {
+      await signIn(data);
+    },
+    [signIn],
+  );
+  console.log('user', user);
   return (
     <BackgroundGradient>
       <S.Container>
@@ -54,8 +60,10 @@ export function Signin() {
               control={control}
               erro={errors.email && String(errors.email.message)}
               icon={EmailIcon}
+              keyboardType="email-address"
               name="email"
               placeholder="Enter your email"
+              autoCapitalize="none"
               returnKeyType="next"
               onSubmitEditing={() => passwordRef.current?.focus()}
             />
@@ -67,20 +75,31 @@ export function Signin() {
               erro={errors.password && String(errors.password.message)}
               icon={PassIcon}
               name="password"
+              secureTextEntry
+              autoCapitalize="none"
               ref={passwordRef}
               placeholder="Enter your password"
-              autoCapitalize="none"
               returnKeyType="next"
             />
 
-            <Link label="forgot your password?" align="right" />
-            <Separator height={80} />
+            <Link
+              label="forgot your password?"
+              align="right"
+              onPress={resetError}
+            />
+            <Separator height={40} />
+
+            <S.ContainerError>
+              <Error error={error} />
+            </S.ContainerError>
+            <Separator height={20} />
 
             <S.ContainerButton>
               <Button
                 label="Log in"
                 onPress={handleSubmit(handleSignUpStepOne)}
-                disabled={!isDirty || !isValid}
+                disabled={!isDirty || !isValid || loading}
+                loading={loading}
               />
             </S.ContainerButton>
             <Separator height={18} />

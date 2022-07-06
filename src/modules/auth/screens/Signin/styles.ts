@@ -7,6 +7,11 @@ export const Content = styled.View`
   padding-top: 100px;
 `;
 
+export const ContainerError = styled.View`
+  justify-content: center;
+  align-items: center;
+  height: 20px;
+`;
 export const ContainerButton = styled.View`
   justify-content: center;
   align-items: center;

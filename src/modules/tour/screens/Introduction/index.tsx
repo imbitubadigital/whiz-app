@@ -1,5 +1,7 @@
+import { BackgroundGradient } from '@src/components/BackgroundGradient';
 import {Button} from '@src/components/Button';
 import {Link} from '@src/components/Link';
+import {useAuth} from '@src/contexts/auth';
 import React, {useCallback, useRef, useState} from 'react';
 import {
   Dimensions,
@@ -17,6 +19,7 @@ const screenWidth = Dimensions.get('window').width;
 
 export function Introduction() {
   const scrollRef = useRef<ScrollView | any>(null);
+  const {settingTour, loading} = useAuth();
   const [position, setPosition] = useState(0);
 
   const handlePosition = useCallback(
@@ -30,7 +33,7 @@ export function Introduction() {
   );
 
   return (
-    <>
+    <BackgroundGradient>
       <AndroidBackHandler onBackPress={() => true} />
       <S.Container>
         <StatusBar hidden={true} />
@@ -49,7 +52,11 @@ export function Introduction() {
         <S.Footer>
           <S.ContentFooter active={position === dataTour.length - 1}>
             {position === dataTour.length - 1 ? (
-              <Button label="Let’s start!" />
+              <Button
+                label="Let’s start!"
+                onPress={() => settingTour('concluded')}
+                loading={loading}
+              />
             ) : (
               <>
                 <S.ContainerBullet>
@@ -59,12 +66,16 @@ export function Introduction() {
                     );
                   })}
                 </S.ContainerBullet>
-                <Link label="Skip" align="center" />
+                <Link
+                  label="Skip"
+                  align="center"
+                  onPress={() => settingTour('skip')}
+                />
               </>
             )}
           </S.ContentFooter>
         </S.Footer>
       </S.Container>
-    </>
+    </BackgroundGradient>
   );
 }
