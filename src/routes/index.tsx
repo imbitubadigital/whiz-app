@@ -24,9 +24,9 @@ const AppRoutes = () => {
       screenOptions={{
         headerShown: false,
       }}>
+      <AppStack.Screen name="AuthRoutes" component={AuthStack} />
       <AppStack.Screen name="AppDrawer" component={AppDrawer} />
-      {/* <AppStack.Screen name="TourStack" component={TourStack} />
-       <AppStack.Screen name="AuthRoutes" component={AuthStack} />  */}
+      <AppStack.Screen name="TourStack" component={TourStack} />
     </AppStack.Navigator>
   );
 };
