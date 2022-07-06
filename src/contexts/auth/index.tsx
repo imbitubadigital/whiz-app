@@ -143,7 +143,7 @@ const AuthProvider: React.FC<{children: ReactNode}> = ({children}) => {
         setError('Invalid credentials');
       } else {
         const dataParse = JSON.parse(dataStorage);
-        console.log('baixo Baixo', {dataParse, credentials});
+
         if (
           dataParse.email.toLocaleLowerCase() !==
             credentials.email.toLocaleLowerCase() ||

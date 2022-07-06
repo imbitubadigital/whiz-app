@@ -22,7 +22,7 @@ import {Error} from '@components/Error';
 export function Signin() {
   const passwordRef = useRef<TextInput>(null);
   const linkTo = useLinkTo();
-  const {signIn, loading, error, user, resetError} = useAuth();
+  const {signIn, loading, error, resetError} = useAuth();
   const {
     control,
 
@@ -39,7 +39,7 @@ export function Signin() {
     },
     [signIn],
   );
-  console.log('user', user);
+
   return (
     <BackgroundGradient>
       <S.Container>
