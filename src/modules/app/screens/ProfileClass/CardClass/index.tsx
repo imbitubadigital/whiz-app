@@ -9,7 +9,7 @@ export function CardClass({item, ...rest}: CardClassProps) {
     if (status === 'pending' || status === 'complete') {
       return (
         <S.Bullet status={status}>
-          <S.LabelBullet>Homework pending</S.LabelBullet>
+          <S.LabelBullet>{`Homework ${status}`}</S.LabelBullet>
         </S.Bullet>
       );
     }
